@@ -1,5 +1,5 @@
 package jpa;
 
 public class Admin {
-    private Long adminId;
+    private Long id;
 }

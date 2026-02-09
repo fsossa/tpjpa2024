@@ -1,5 +1,5 @@
 package jpa;
 
 public class User {
-    private Long userId;
+    private Long id;
 }

@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Concert {
     
-    private Long concertId;
+    private Long id;
     private String artiste;
     private String lieu;
     private LocalDateTime date;
