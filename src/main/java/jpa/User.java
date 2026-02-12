@@ -3,68 +3,68 @@ package jpa;
 import java.time.LocalDate;
 
 public abstract class User {
-    protected String nom;
-    protected String prenom;
-    protected LocalDate dateNaissance;
-    protected String email;
-    protected String motDePss;
+    protected String lastName;
+    protected String firstName;
+    protected LocalDate dateOfBirth;
+    protected String mail;
+    protected String passWord;
 
     public User() {
     }
 
-    public User(String nom, String prenom, LocalDate dateNaissance, String email, String motDePss) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.dateNaissance = dateNaissance;
-        this.email = email;
-        this.motDePss = motDePss;
+    public User(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.dateOfBirth = dateOfBirth;
+        this.mail = mail;
+        this.passWord = passWord;
     }
 
     public abstract Long getId();
 
     public abstract void setId(Long id);
 
-    public String getNom() {
-        return nom;
+    public String getlastName() {
+        return lastName;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getfirstName() {
+        return firstName;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public LocalDate getDateNaissance() {
-        return dateNaissance;
+    public LocalDate getdateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDateNaissance(LocalDate dateNaissance) {
-        this.dateNaissance = dateNaissance;
+    public void setdateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public String getEmail() {
-        return email;
+    public String getmail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setmail(String mail) {
+        this.mail = mail;
     }
 
-    public String getMotDePss() {
-        return motDePss;
+    public String getpassWord() {
+        return passWord;
     }
 
-    public void setMotDePss(String motDePss) {
-        this.motDePss = motDePss;
+    public void setpassWord(String passWord) {
+        this.passWord = passWord;
     }
 
-    public void login(String email, String motDePss) {
+    public void login(String mail, String passWord) {
         // Implémentation de la logique de connexion
     }
 }

@@ -6,15 +6,15 @@ public class Concert {
     
     private Long id;
     private String topic;
-    private String lieu;
+    private String place;
     private LocalDateTime date;
     private String description;
     private Organizer organizer;
     private List<Ticket> tickets;
-
-    public Concert(String topic, String lieu, LocalDateTime date, String description, Organizer organizer) {
+    private List<String> artists;
+    public Concert(String topic, String place, LocalDateTime date, String description, Organizer organizer) {
         this.topic = topic;
-        this.lieu = lieu;
+        this.place = place;
         this.date = date;
         this.description = description;
         this.organizer = organizer;
@@ -32,8 +32,8 @@ public class Concert {
         return topic;
     }
 
-    public String getLieu() {
-        return lieu;
+    public String getPlace() {
+        return place;
     }
 
     public LocalDateTime getDate() {
@@ -52,8 +52,8 @@ public class Concert {
         this.topic = topic;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public void setDate(LocalDateTime date) {
@@ -83,4 +83,17 @@ public class Concert {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
+    public List<String> getArtists() { 
+        return artists; 
+    }
+    public void addArtist(String artist) { 
+        this.artists.add(artist);
+    } 
+    public void removeArtist(String artist) { 
+        this.artists.remove(artist);
+    } 
+    public void setArtists(List<String> artists) { 
+        this.artists = artists; 
+    }
+        
 }

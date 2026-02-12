@@ -8,8 +8,8 @@ public class Admin extends User {
         super();
     }
 
-    public Admin(String nom, String prenom, LocalDate dateNaissance, String email, String motDePss) {
-        super(nom, prenom, dateNaissance, email, motDePss);
+    public Admin(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
+        super(lastName, firstName, dateOfBirth, mail, passWord);
     }
 
     @Override
