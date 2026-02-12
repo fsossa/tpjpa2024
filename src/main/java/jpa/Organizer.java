@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Organizer extends User {
     private Long id;
-    private List<Concert> concertsOrganises;
+    private List<Concert> concertsOrganised;
     
     public Organizer() {
     }
 
-    public Organizer(String nom, String prenom, LocalDate dateNaissance, String email, String motDePss) {
-        super(nom, prenom, dateNaissance, email, motDePss);
+    public Organizer(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
+        super(lastName, firstName, dateOfBirth, mail, passWord);
     }
 
     @Override
@@ -23,19 +23,19 @@ public class Organizer extends User {
         this.id = id;
     }
 
-    public List<Concert> getConcertsOrganises() {
-        return concertsOrganises;
+    public List<Concert> getconcertsOrganised() {
+        return concertsOrganised;
     }
 
     public void addConcertOrganise(Concert concert) {
-        this.concertsOrganises.add(concert);
+        this.concertsOrganised.add(concert);
     }
 
     public void removeConcertOrganise(Concert concert) {
-        this.concertsOrganises.remove(concert);
+        this.concertsOrganised.remove(concert);
     }
 
-    public void setConcertsOrganises(List<Concert> concertsOrganises) {
-        this.concertsOrganises = concertsOrganises;
+    public void setconcertsOrganised(List<Concert> concertsOrganised) {
+        this.concertsOrganised = concertsOrganised;
     }
 }

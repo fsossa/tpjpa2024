@@ -8,8 +8,8 @@ public class Customer extends User {
     public Customer() {
     }
 
-    public Customer(String nom, String prenom, String email, String motDePss) {
-        super(nom, prenom, null, email, motDePss);
+    public Customer(String lastName, String firstName, String mail, String passWord) {
+        super(lastName, firstName, null, mail, passWord);
     }
 
     @Override
