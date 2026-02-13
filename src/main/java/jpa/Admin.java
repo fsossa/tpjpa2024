@@ -1,6 +1,10 @@
 package jpa;
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Admin extends User {
     private Long id;
 
@@ -11,7 +15,8 @@ public class Admin extends User {
     public Admin(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
         super(lastName, firstName, dateOfBirth, mail, passWord);
     }
-
+    
+    @Id
     @Override
     public Long getId() {
         return id;

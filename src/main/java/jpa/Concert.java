@@ -2,6 +2,10 @@ package jpa;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Concert {
     
     private Long id;
@@ -20,6 +24,7 @@ public class Concert {
         this.organizer = organizer;
     }
 
+    @Id
     public Long getId() {
         return id;
     }

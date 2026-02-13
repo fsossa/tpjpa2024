@@ -2,6 +2,10 @@ package jpa;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Ticket {
     private Long id;
     private String title;
@@ -19,7 +23,8 @@ public class Ticket {
         this.statut = statut;
         this.concert = concert;
     }
-
+    
+    @Id
     public Long getId() {
         return id;
     }
