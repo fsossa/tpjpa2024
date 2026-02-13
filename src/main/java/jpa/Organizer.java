@@ -2,6 +2,10 @@ package jpa;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Organizer extends User {
     private Long id;
     private List<Concert> concertsOrganised;
@@ -13,6 +17,7 @@ public class Organizer extends User {
         super(lastName, firstName, dateOfBirth, mail, passWord);
     }
 
+    @Id
     @Override
     public Long getId() {
         return id;

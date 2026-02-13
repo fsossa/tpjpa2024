@@ -1,6 +1,10 @@
 package jpa;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Customer extends User {
     private Long id;
     private List<Ticket> ticketsAchetes;
@@ -12,7 +16,7 @@ public class Customer extends User {
         super(lastName, firstName, null, mail, passWord);
     }
 
-    @Override
+    @Id
     public Long getId() {
         return id;
     }  
