@@ -2,31 +2,15 @@ package jpa;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
 public class Admin extends User {
-    private Long id;
 
     public Admin() {
         super();
     }
 
-    public Admin(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
-        super(lastName, firstName, dateOfBirth, mail, passWord);
-    }
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
+    public Admin(String lastName, String firstName, LocalDate dateOfBirth, String mail, String password) {
+        super(lastName, firstName, dateOfBirth, mail, password);
     }
 }

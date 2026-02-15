@@ -2,69 +2,77 @@ package jpa;
 
 import java.time.LocalDate;
 
-public abstract class User {
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="dtype")
+
+public class User {
+    protected Long id;
     protected String lastName;
     protected String firstName;
     protected LocalDate dateOfBirth;
+    @Column(name="mail", unique=true)
     protected String mail;
-    protected String passWord;
+    protected String password;
 
     public User() {
     }
 
-    public User(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
+    public User(String lastName, String firstName, LocalDate dateOfBirth, String mail, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirth = dateOfBirth;
         this.mail = mail;
-        this.passWord = passWord;
+        this.password = password;
+    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getId(){
+        return id;
     }
 
-    public abstract Long getId();
-
-    public abstract void setId(Long id);
-
-    public String getlastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setlastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setfirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public LocalDate getdateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setdateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getmail() {
+    public String getMail() {
         return mail;
     }
 
-    public void setmail(String mail) {
+    public void setMail(String mail) {
         this.mail = mail;
     }
 
-    public String getpassWord() {
-        return passWord;
-    }
-
-    public void setpassWord(String passWord) {
-        this.passWord = passWord;
-    }
-
-    public void login(String mail, String passWord) {
+    public void login(String mail, String password) {
         // Implémentation de la logique de connexion
     }
 }

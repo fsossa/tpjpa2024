@@ -1,48 +1,34 @@
 package jpa;
 import java.util.List;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
+@DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
-    private Long id;
-    private List<Ticket> ticketsAchetes;
-    
-    public Customer() {
+
+    @OneToMany(mappedBy = "customers")
+    private List<Ticket> tickets;
+
+    public Customer(String lastName, String firstName, String mail, String password) {
+        super(lastName, firstName, null, mail, password);
     }
 
-    public Customer(String lastName, String firstName, String mail, String passWord) {
-        super(lastName, firstName, null, mail, passWord);
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Override
-    public Long getId() {
-        return id;
-    }  
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Ticket> getTicketsAchetes() {
-        return ticketsAchetes;
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
     public void addTicketAchete(Ticket ticket) {
-        this.ticketsAchetes.add(ticket);
+        this.tickets.add(ticket);
     }
 
     public void removeTicketAchete(Ticket ticket) {
-        this.ticketsAchetes.remove(ticket);
+        this.tickets.remove(ticket);
     }
 
-    public void setTicketsAchetes(List<Ticket> ticketsAchetes) {
-        this.ticketsAchetes = ticketsAchetes;
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

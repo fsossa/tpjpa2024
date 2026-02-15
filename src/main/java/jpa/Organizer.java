@@ -3,47 +3,31 @@ import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
 public class Organizer extends User {
-    private Long id;
     private List<Concert> concertsOrganised;
     
     public Organizer() {
     }
 
-    public Organizer(String lastName, String firstName, LocalDate dateOfBirth, String mail, String passWord) {
-        super(lastName, firstName, dateOfBirth, mail, passWord);
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Override
-    public Long getId() {
-        return id;
-    }  
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
+    public Organizer(String lastName, String firstName, LocalDate dateOfBirth, String mail, String password) {
+        super(lastName, firstName, dateOfBirth, mail, password);
     }
 
     public List<Concert> getconcertsOrganised() {
         return concertsOrganised;
     }
 
-    public void addConcertOrganise(Concert concert) {
+    public void addConcert(Concert concert) {
         this.concertsOrganised.add(concert);
     }
 
-    public void removeConcertOrganise(Concert concert) {
+    public void removeConcert(Concert concert) {
         this.concertsOrganised.remove(concert);
     }
 
-    public void setconcertsOrganised(List<Concert> concertsOrganised) {
+    public void setconcerts(List<Concert> concertsOrganised) {
         this.concertsOrganised = concertsOrganised;
     }
 }
