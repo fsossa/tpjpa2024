@@ -2,6 +2,7 @@ package jpa;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -77,7 +78,7 @@ public class Concert {
         this.organizer = organizer;
     }
 
-    @OneToMany(mappedBy = "concert")
+    @OneToMany(mappedBy = "concert", cascade = CascadeType.PERSIST)
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -94,7 +95,7 @@ public class Concert {
         this.tickets = tickets;
     }
 
-   @ManyToMany (mappedBy = "concerts")
+   @ManyToMany (mappedBy = "concerts", cascade = CascadeType.PERSIST)
     public List<Artist> getArtists() {
         return artists;
     }
