@@ -1,7 +1,5 @@
 package jpa;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -9,7 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Concert {
@@ -21,7 +20,8 @@ public class Concert {
     private String description;
     private Organizer organizer;
     private List<Ticket> tickets;
-    private List<Artist> artists=new ArrayList<Artist>();
+    private List<Artist> artists;
+
     public Concert(String topic, String place, LocalDateTime date, String description, Organizer organizer) {
         this.topic = topic;
         this.place = place;
@@ -52,7 +52,7 @@ public class Concert {
         return description;
     }
 
-    @OneToOne
+    @ManyToOne
     public Organizer getOrganizer() {
         return organizer;
     }
@@ -77,6 +77,7 @@ public class Concert {
         this.organizer = organizer;
     }
 
+    @OneToMany(mappedBy = "concert")
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -98,14 +99,14 @@ public class Concert {
         return artists;
     }
 
-    
-
     public void addArtist(Artist artist) {
         this.artists.add(artist);
     }
+
     public void removeArtist(Artist artist) {
         this.artists.remove(artist);
     }
+
     public void setArtists(List<Artist> artists) {
         this.artists = artists;     
     }

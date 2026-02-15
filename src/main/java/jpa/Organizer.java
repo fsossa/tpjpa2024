@@ -8,7 +8,6 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("ORGANIZER")
-
 public class Organizer extends User {
     private List<Concert> concertsOrganised;
     
@@ -20,7 +19,7 @@ public class Organizer extends User {
     }
 
     @OneToMany(mappedBy = "organizer")
-    public List<Concert> getconcertsOrganised() {
+    public List<Concert> getconcerts() {
         return concertsOrganised;
     }
 

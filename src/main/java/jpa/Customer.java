@@ -3,19 +3,19 @@ import java.util.List;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 
-    @OneToMany(mappedBy = "customers")
     private List<Ticket> tickets;
 
     public Customer(String lastName, String firstName, String mail, String password) {
         super(lastName, firstName, null, mail, password);
     }
 
+    @ManyToMany(mappedBy = "customers")
     public List<Ticket> getTickets() {
         return tickets;
     }

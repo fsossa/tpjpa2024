@@ -1,7 +1,5 @@
 package jpa;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,8 +25,6 @@ public class Artist {
         return id;
     }
 
-  
-
     public String getName() {
         return name;
     }
@@ -41,6 +37,7 @@ public class Artist {
     public Concert getConcert() {
         return concert;
     }
+    
     public void setConcert(Concert concert) {
         this.concert = concert;
     }   
