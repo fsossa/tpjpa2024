@@ -25,7 +25,6 @@ public class Artist {
         return id;
     }
 
-
     public String getName() {
         return name;
     }
@@ -38,6 +37,7 @@ public class Artist {
     public Concert getConcert() {
         return concert;
     }
+    
     public void setConcert(Concert concert) {
         this.concert = concert;
     }   

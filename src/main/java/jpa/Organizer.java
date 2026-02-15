@@ -2,13 +2,13 @@ package jpa;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("ORGANIZER")
-
 public class Organizer extends User {
     private List<Concert> concertsOrganised;
     
@@ -19,8 +19,8 @@ public class Organizer extends User {
         super(lastName, firstName, dateOfBirth, mail, password);
     }
 
-    @OneToMany(mappedBy = "organizer")
-    public List<Concert> getconcertsOrganised() {
+    @OneToMany(mappedBy = "organizer", cascade = CascadeType.PERSIST)
+    public List<Concert> getconcerts() {
         return concertsOrganised;
     }
 

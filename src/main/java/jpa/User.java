@@ -71,8 +71,4 @@ public class User {
     public void setMail(String mail) {
         this.mail = mail;
     }
-
-    public void login(String mail, String password) {
-        // Implémentation de la logique de connexion
-    }
 }
