@@ -1,11 +1,15 @@
 package jpa;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Concert {
@@ -17,7 +21,7 @@ public class Concert {
     private String description;
     private Organizer organizer;
     private List<Ticket> tickets;
-    private List<String> artists;
+    private List<Artist> artists=new ArrayList<Artist>();
     public Concert(String topic, String place, LocalDateTime date, String description, Organizer organizer) {
         this.topic = topic;
         this.place = place;
@@ -31,10 +35,6 @@ public class Concert {
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }  
 
     public String getTopic() {
         return topic;
@@ -52,6 +52,7 @@ public class Concert {
         return description;
     }
 
+    @OneToOne
     public Organizer getOrganizer() {
         return organizer;
     }
@@ -91,17 +92,21 @@ public class Concert {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
-    public List<String> getArtists() { 
-        return artists; 
+
+   @ManyToMany (mappedBy = "concerts")
+    public List<Artist> getArtists() {
+        return artists;
     }
-    public void addArtist(String artist) { 
+
+    
+
+    public void addArtist(Artist artist) {
         this.artists.add(artist);
-    } 
-    public void removeArtist(String artist) { 
-        this.artists.remove(artist);
-    } 
-    public void setArtists(List<String> artists) { 
-        this.artists = artists; 
     }
-        
+    public void removeArtist(Artist artist) {
+        this.artists.remove(artist);
+    }
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;     
+    }
 }

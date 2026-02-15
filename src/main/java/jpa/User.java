@@ -20,7 +20,7 @@ public class User {
     protected String lastName;
     protected String firstName;
     protected LocalDate dateOfBirth;
-    @Column(name="mail", unique=true)
+    @Column(name="mail", unique=true, nullable=false)
     protected String mail;
     protected String password;
 

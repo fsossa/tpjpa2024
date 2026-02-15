@@ -23,8 +23,8 @@ public class JpaTest {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		try {
+			
 
-			// TODO create and persist entity
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -35,6 +35,7 @@ public class JpaTest {
 		EntityManagerHelper.closeEntityManagerFactory();
 		System.out.println(".. done");
 	}
+
 
 
 
