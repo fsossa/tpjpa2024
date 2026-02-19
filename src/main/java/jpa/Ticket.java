@@ -1,5 +1,6 @@
 package jpa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -16,7 +17,7 @@ public class Ticket {
     private int capacity;
     private String statut;
     private Concert concert;
-    private List<Customer> customers;
+    private List<Customer> customers = new ArrayList<>();
 
     public Ticket() {
     }
@@ -32,6 +33,10 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
+    }
+    
+    public void setId(Long id){
+        this.id = id;
     }
 
     public String getTitle() {

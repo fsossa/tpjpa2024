@@ -1,5 +1,6 @@
 package jpa;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -16,16 +17,14 @@ public class Concert {
     
     private Long id;
     private String topic;
-    private String place;
     private LocalDateTime date;
     private String description;
     private Organizer organizer;
-    private List<Ticket> tickets;
-    private List<Artist> artists;
+    private List<Ticket> tickets = new ArrayList<>();
+    private List<Artist> artists = new ArrayList<>();
 
-    public Concert(String topic, String place, LocalDateTime date, String description, Organizer organizer) {
+    public Concert(String topic, LocalDateTime date, String description, Organizer organizer) {
         this.topic = topic;
-        this.place = place;
         this.date = date;
         this.description = description;
         this.organizer = organizer;
@@ -36,13 +35,13 @@ public class Concert {
     public Long getId() {
         return id;
     }
+    
+    public void setId(Long id){
+        this.id = id;
+    }
 
     public String getTopic() {
         return topic;
-    }
-
-    public String getPlace() {
-        return place;
     }
 
     public LocalDateTime getDate() {
@@ -60,10 +59,6 @@ public class Concert {
 
     public void setTopic(String topic) {
         this.topic = topic;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
     }
 
     public void setDate(LocalDateTime date) {

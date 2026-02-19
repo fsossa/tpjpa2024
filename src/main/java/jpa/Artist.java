@@ -1,5 +1,8 @@
 package jpa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +13,7 @@ import jakarta.persistence.ManyToMany;
 public class Artist {
     private Long id;
     private String name;
-    private Concert concert;
+    private List<Concert> concerts = new ArrayList<>();
 
     public Artist() {
     }
@@ -24,6 +27,10 @@ public class Artist {
     public Long getId() {
         return id;
     }
+    
+    public void setId(Long id){
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -34,12 +41,20 @@ public class Artist {
     }
 
     @ManyToMany
-    public Concert getConcert() {
-        return concert;
+    public List<Concert> getConcerts() {
+        return concerts;
+    }
+
+    public void addConcert(Concert concert) {
+        this.concerts.add(concert);
+    }
+
+    public void removeConcert(Concert concert) {
+        this.concerts.remove(concert);
     }
     
-    public void setConcert(Concert concert) {
-        this.concert = concert;
+    public void setConcerts(List<Concert> concerts) {
+        this.concerts = concerts;
     }   
 
 }

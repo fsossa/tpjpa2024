@@ -1,4 +1,5 @@
 package jpa;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.DiscriminatorValue;
@@ -9,8 +10,8 @@ import jakarta.persistence.ManyToMany;
 @DiscriminatorValue("CUSTOMER")
 public class Customer extends User {
 
-    private List<Ticket> tickets;
-
+    private List<Ticket> tickets = new ArrayList<>();
+    
     public Customer(String lastName, String firstName, String mail, String password) {
         super(lastName, firstName, null, mail, password);
     }

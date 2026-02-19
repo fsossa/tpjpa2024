@@ -1,5 +1,6 @@
 package jpa;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,8 +11,8 @@ import jakarta.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("ORGANIZER")
 public class Organizer extends User {
-    private List<Concert> concertsOrganised;
-    
+    private List<Concert> concertsOrganised = new ArrayList<>();
+
     public Organizer() {
     }
 
